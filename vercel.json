@@ -1,5 +1,0 @@
-{
-  "rewrites": [
-    { "source": "/api/cari", "destination": "/api/index.js" }
-  ]
-}
