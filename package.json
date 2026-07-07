@@ -2,6 +2,6 @@
   "name": "panda-nobar",
   "version": "1.0.0",
   "dependencies": {
-    "yt-search": "latest"
+    "node-fetch": "2.6.7"
   }
 }
