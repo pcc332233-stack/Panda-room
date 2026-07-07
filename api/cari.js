@@ -1,20 +1,13 @@
-const fetch = require('node-fetch');
+const ytSearch = require('yt-search');
 
 module.exports = async (req, res) => {
     const query = req.query.q || 'panda';
-    const url = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
-    
     try {
-        const response = await fetch(url);
-        const text = await response.text();
-        
-        // Sebagai bukti server aktif, kita kirim pesan sukses
-        res.status(200).json({ 
-            status: "Success", 
-            message: "Server berhasil mengambil data dari YouTube",
-            query: query 
-        });
+        // Menambah sedikit delay agar tidak dianggap serangan bot
+        const r = await ytSearch(query);
+        const videos = r.videos.slice(0, 5);
+        res.status(200).json(videos);
     } catch (err) {
-        res.status(500).json({ error: err.message });
+        res.status(500).json({ error: "Gagal memuat: " + err.message });
     }
 };
