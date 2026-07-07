@@ -1,0 +1,7 @@
+{
+  "name": "panda-nobar",
+  "version": "1.0.0",
+  "dependencies": {
+    "yt-search": "^2.3.1"
+  }
+}
